@@ -2,9 +2,9 @@ package com.baidu.disconf.web.service.config.form;
 
 import javax.validation.constraints.NotNull;
 
-import com.baidu.dsp.common.form.RequestListBase;
-
 import lombok.Data;
+
+import com.baidu.dsp.common.form.RequestListBase;
 
 /**
  * @author liaoqiqi
@@ -26,5 +26,29 @@ public class ConfListForm extends RequestListBase {
 
     @NotNull
     private Long envId;
+
+    public Long getAppId() {
+        return appId;
+    }
+
+    public void setAppId(Long appId) {
+        this.appId = appId;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public Long getEnvId() {
+        return envId;
+    }
+
+    public void setEnvId(Long envId) {
+        this.envId = envId;
+    }
 
 }

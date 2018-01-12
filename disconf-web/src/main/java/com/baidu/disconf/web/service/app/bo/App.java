@@ -88,7 +88,7 @@ public class App extends BaseObject<Long> {
     @Override
     public String toString() {
         return "App [name=" + name + ", desc=" + desc + ", emails=" + emails + ", createTime=" + createTime +
-                   ", updateTime=" + updateTime + "]";
+                ", updateTime=" + updateTime + "]";
     }
 
     public String getEmails() {

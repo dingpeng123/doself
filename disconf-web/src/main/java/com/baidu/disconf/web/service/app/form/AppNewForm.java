@@ -2,11 +2,11 @@ package com.baidu.disconf.web.service.app.form;
 
 import javax.validation.constraints.NotNull;
 
+import lombok.Data;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.baidu.dsp.common.form.RequestFormBase;
-
-import lombok.Data;
 
 /**
  * @author liaoqiqi
@@ -31,5 +31,29 @@ public class AppNewForm extends RequestFormBase {
 
     // 邮箱
     private String emails = "";
+
+    public String getApp() {
+        return app;
+    }
+
+    public void setApp(String app) {
+        this.app = app;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getEmails() {
+        return emails;
+    }
+
+    public void setEmails(String emails) {
+        this.emails = emails;
+    }
 
 }

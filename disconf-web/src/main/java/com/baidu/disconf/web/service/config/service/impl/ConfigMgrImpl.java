@@ -108,6 +108,7 @@ public class ConfigMgrImpl implements ConfigMgr {
      *
      * @return
      */
+    @Override
     public List<File> getDisconfFileList(ConfListForm confListForm) {
 
         List<Config> configList =
@@ -143,7 +144,7 @@ public class ConfigMgrImpl implements ConfigMgr {
      */
     @Override
     public DaoPageResult<ConfListVo> getConfigList(ConfListForm confListForm, boolean fetchZk,
-                                                   final boolean getErrorMessage) {
+            final boolean getErrorMessage) {
 
         //
         // 数据据结果
@@ -423,7 +424,7 @@ public class ConfigMgrImpl implements ConfigMgr {
 
             try {
 
-                if ((zkDataStr == null && valueInDb != null) || (zkDataStr != null && valueInDb == null)) {
+                if (zkDataStr == null && valueInDb != null || zkDataStr != null && valueInDb == null) {
                     errorKeyList.add(keyInZk);
 
                 } else {
@@ -433,8 +434,7 @@ public class ConfigMgrImpl implements ConfigMgr {
 
                     if (MyStringUtils.isDouble(zkDataStr) && MyStringUtils.isDouble(valueInDb.toString())) {
 
-                        if (Math.abs(Double.parseDouble(zkDataStr) - Double.parseDouble(valueInDb.toString())) >
-                                0.001d) {
+                        if (Math.abs(Double.parseDouble(zkDataStr) - Double.parseDouble(valueInDb.toString())) > 0.001d) {
                             isEqual = false;
                         }
 
@@ -446,7 +446,7 @@ public class ConfigMgrImpl implements ConfigMgr {
 
                     if (!isEqual) {
                         errorKeyList
-                                .add(keyInZk + "\t" + DiffUtils.getDiffSimple(zkDataStr, valueInDb.toString().trim()));
+                        .add(keyInZk + "\t" + DiffUtils.getDiffSimple(zkDataStr, valueInDb.toString().trim()));
                     }
                 }
 
